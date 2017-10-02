@@ -23,12 +23,9 @@ namespace CompanyWebAPI.Controllers
             this.companyRepository = companyRepository;
         }
 
-        public ActionResult Index() //This view is strongly typed against User
+        public ActionResult Index()
         {
-            //testing against Joe Bob
-            string number = "7777777777";
-            var result = companyRepository.GetCompanyByNumber(number);
-            return View(result);
+            return View();
         }
     }
 }

@@ -15,7 +15,8 @@ namespace CompanyWebAPI
 
             routes.MapRoute(
                 name: "Default",
-                url:"{*anything}",
+                //url:"{*anything}",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

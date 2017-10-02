@@ -16,10 +16,10 @@ namespace CompanyWebAPI.Controllers
     {
         private ICompanyRepository companyRepository;
 
-        //public CompanyAPIController()
-        //{
-        //    this.companyRepository = new CompanyRepository(new CompanyContext());
-        //}
+        public CompanyAPIController()
+        {
+            this.companyRepository = new CompanyRepository(new CompanyContext());
+        }
         public CompanyAPIController(ICompanyRepository companyRepository)
         {
             this.companyRepository = companyRepository;

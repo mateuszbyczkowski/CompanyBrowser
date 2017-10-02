@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using CompanyWebAPI.Models;
 
@@ -12,11 +13,11 @@ namespace CompanyWebAPI.DAL
     {
         protected override void Seed(CompanyContext context)
         {
-            SeedCompanyData(context);
+            SeedCompanyData(context).Wait();
             base.Seed(context);
         }
 
-        protected static void SeedCompanyData(CompanyContext context)
+        protected static async Task SeedCompanyData(CompanyContext context)
         {
             var companies = new List<Company>
             {
@@ -55,7 +56,7 @@ namespace CompanyWebAPI.DAL
                 }
             };
             companies.ForEach(company => context.Company.Add(company));
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }

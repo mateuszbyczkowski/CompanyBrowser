@@ -23,7 +23,7 @@ namespace CompanyWebAPI.DAL
         {
             string cleanNumber = CleanNumber(number);
             var companyData = context.Company.SingleOrDefault(c => c.Krs == cleanNumber || c.Nip == cleanNumber || c.Regon == cleanNumber);
-            if (companyData == null) throw new ArgumentNullException(nameof(companyData));
+            if (companyData == null) return new Company() {};
             return companyData;
         }
 
