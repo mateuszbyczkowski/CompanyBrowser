@@ -14,7 +14,7 @@ namespace CompanyWebAPI
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/angular").Include(
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/node_modules/core-js/client/shim.min.js",
                 "~/node_modules/zone.js/dist/zone.js",
                 "~/node_modules/systemjs/dist/system.src.js",
