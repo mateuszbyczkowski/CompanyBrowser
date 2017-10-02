@@ -15,14 +15,6 @@ namespace CompanyWebAPI.Controllers
 {
     public class HomeController : Controller
     {
-        CompanyContext context = new CompanyContext();
-        private ICompanyRepository companyRepository;
-
-        public HomeController(ICompanyRepository companyRepository)
-        {
-            this.companyRepository = companyRepository;
-        }
-
         public ActionResult Index()
         {
             return View();

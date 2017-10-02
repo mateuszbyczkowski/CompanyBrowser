@@ -14,7 +14,7 @@ namespace CompanyWebAPI.Controllers
 {
     public class CompanyAPIController : BaseAPIController
     {
-        private ICompanyRepository companyRepository;
+        private readonly ICompanyRepository companyRepository;
 
         public CompanyAPIController()
         {
@@ -35,23 +35,6 @@ namespace CompanyWebAPI.Controllers
             companyRepository.Dispose();
             base.Dispose(disposing);
         }
-
-        /*public HttpResponseMessage Post([FromBody]Company value)
-        {
-            context.Company.Add(value);
-            return ToJson(context.SaveChanges());
-        }
-
-        public HttpResponseMessage Put(int id, [FromBody]Company value)
-        {
-            context.Entry(value).State = EntityState.Modified;
-            return ToJson(context.SaveChanges());
-        }
-        public HttpResponseMessage Delete(int id)
-        {
-            context.Company.Remove(context.Company.FirstOrDefault(x => x.CompanyId == id));
-            return ToJson(context.SaveChanges());
-        }*/
     }
 }
 
