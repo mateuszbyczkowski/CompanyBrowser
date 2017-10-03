@@ -7,7 +7,7 @@
             <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i><span style="vertical-align: super; margin-left: 5px;">Tip: Type valid KRS/NIP/REGON number, for example 777777777</span>
         </div>
         <form novalidate (ngSubmit)="onSubmit(companyFrm)" [formGroup]="companyFrm">
-            <div>
+            <div class="form-group">
                 <span style="display: block;">NIP/KRS/REGON</span>
                 <input type="text" style="display: inline-block;" class="form-control" formControlName="companyNumber">
                 <button type="submit" [disabled]="companyFrm.invalid" class="btn btn-primary">Fetch data</button>
@@ -17,35 +17,35 @@
         <hr/>
         <div>
             <span>Name</span>
-            <input type="text" class="form-control" value="{{company.Name}}" formControlName="Name">
+            <input type="text" class="form-control" value="{{company.Name}}">
         </div>
         <div>
             <span>Street</span>
-            <input type="text" class="form-control" value="{{company.Street}}" formControlName="Street">
+            <input type="text" class="form-control" value="{{company.Street}}">
         </div>
         <div>
             <span>Street number</span>
-            <input type="text" class="form-control" value="{{company.StreetNumber}}" formControlName="StreetNumber">
+            <input type="text" class="form-control" value="{{company.StreetNumber}}">
         </div>
         <div>
             <span>Postcode</span>
-            <input type="text" class="form-control" value="{{company.Postcode}}" formControlName="Postcode">
+            <input type="text" class="form-control" value="{{company.Postcode}}">
         </div>
         <div>
             <span>City</span>
-            <input type="text" class="form-control" value="{{company.City}}" formControlName="City">
+            <input type="text" class="form-control" value="{{company.City}}">
         </div>
         <div>
             <span>Nip</span>
-            <input type="text" class="form-control" value="{{company.Nip}}" formControlName="Nip">
+            <input type="text" class="form-control" value="{{company.Nip}}">
         </div>
         <div>
             <span>Krs</span>
-            <input type="text" class="form-control" value="{{company.Krs}}" formControlName="Krs">
+            <input type="text" class="form-control" value="{{company.Krs}}">
         </div>
         <div style="margin-bottom: 5px">
             <span>Regon</span>
-            <input type="text" class="form-control" value="{{company.Regon}}" formControlName="Regon">
+            <input type="text" class="form-control" value="{{company.Regon}}">
         </div>
         <div *ngIf="msg" role="alert" class="alert alert-info alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

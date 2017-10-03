@@ -33,13 +33,6 @@ var CompanyComponent = /** @class */ (function () {
         });
         this.LoadCompany();
     };
-    // LoadCompany(): void {
-    //    this.indLoading = true;
-    //    var numb: number = 777777777;
-    //    this._companyService.get(Global.BASE_USER_ENDPOINT, numb)
-    //        .subscribe(company => { this.company = company; this.indLoading = false; },
-    //            error => this.msg = <any>error);
-    // }
     CompanyComponent.prototype.LoadCompany = function () {
         var _this = this;
         this.indLoading = true;
@@ -56,11 +49,10 @@ var CompanyComponent = /** @class */ (function () {
         var numb = "7777777777";
         this._companyService.get(global_1.Global.BASE_USER_ENDPOINT, numb).subscribe(function (data) {
             if (data === 1) {
-                _this.msg = "Data successfully taken.";
                 _this.LoadCompany();
             }
             else {
-                _this.msg = "There is some issue in saving records, please contact to system administrator!";
+                _this.msg = "Type correct number!";
             }
         }, function (error) {
             _this.msg = error;

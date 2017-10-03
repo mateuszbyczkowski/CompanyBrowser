@@ -22,15 +22,6 @@ var CompanyService = /** @class */ (function () {
     CompanyService.prototype.get = function (url, id) {
         return this._http.get(url + "?number=" + id)
             .map(function (response) { return response.json(); })
-            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
-            .catch(this.handleError);
-    };
-    CompanyService.prototype.post = function (url, model) {
-        var body = JSON.stringify(model);
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.post(url, body, options)
-            .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     CompanyService.prototype.handleError = function (error) {
