@@ -12,7 +12,7 @@ var HomeComponent = /** @class */ (function () {
     }
     HomeComponent = __decorate([
         core_1.Component({
-            template: "\n<h1>WITAM SERDECZNIE NA NASZEJ STRONIE</h1>\n<img src=\"https://s3-us-west-1.amazonaws.com/powr/defaults/Siberian-Tiger-Running-Through-Snow-Tom-Brakefield-Getty-Images-200353826-001.jpg\"/>\n"
+            template: "\n            <h2>Autor: Mateusz Byczkowski</h2>\n            <a href=\"https://github.com/mateuszbyczkowski/CompanyBrowser\"><img style=\"width: 100px;\" src=\"../../Content/Images/github.png\" alt=\"github\"/></a>\n            "
         })
     ], HomeComponent);
     return HomeComponent;

@@ -2,9 +2,9 @@
 
 @Component({
     template: `
-<h1>WITAM SERDECZNIE NA NASZEJ STRONIE</h1>
-<img src="https://s3-us-west-1.amazonaws.com/powr/defaults/Siberian-Tiger-Running-Through-Snow-Tom-Brakefield-Getty-Images-200353826-001.jpg"/>
-`
+            <h2>Autor: Mateusz Byczkowski</h2>
+            <a href="https://github.com/mateuszbyczkowski/CompanyBrowser"><img style="width: 100px;" src="../../Content/Images/github.png" alt="github"/></a>
+            `
 })
 
 export class HomeComponent {

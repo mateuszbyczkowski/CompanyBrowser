@@ -43,7 +43,7 @@ var CompanyComponent = /** @class */ (function () {
     CompanyComponent.prototype.LoadCompany = function () {
         var _this = this;
         this.indLoading = true;
-        var numb = 777777777;
+        var numb = "7777777777";
         this._companyService.get(global_1.Global.BASE_USER_ENDPOINT, numb)
             .subscribe(function (company) { _this.company = company; _this.indLoading = false; }, function (error) { return _this.msg = error; });
     };
@@ -53,7 +53,7 @@ var CompanyComponent = /** @class */ (function () {
     CompanyComponent.prototype.onSubmit = function (formData) {
         var _this = this;
         this.msg = "";
-        var numb = 777777777;
+        var numb = "7777777777";
         this._companyService.get(global_1.Global.BASE_USER_ENDPOINT, numb).subscribe(function (data) {
             if (data === 1) {
                 _this.msg = "Data successfully taken.";

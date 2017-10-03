@@ -20,8 +20,9 @@ var CompanyService = /** @class */ (function () {
         this._http = _http;
     }
     CompanyService.prototype.get = function (url, id) {
-        return this._http.get(url)
+        return this._http.get(url + "?number=" + id)
             .map(function (response) { return response.json(); })
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
             .catch(this.handleError);
     };
     CompanyService.prototype.post = function (url, model) {

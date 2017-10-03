@@ -34,20 +34,11 @@ export class CompanyComponent implements OnInit {
         });
 
         this.LoadCompany();
-
     }
-
-    // LoadCompany(): void {
-    //    this.indLoading = true;
-    //    var numb: number = 777777777;
-    //    this._companyService.get(Global.BASE_USER_ENDPOINT, numb)
-    //        .subscribe(company => { this.company = company; this.indLoading = false; },
-    //            error => this.msg = <any>error);
-    // }
 
     LoadCompany(): void {
         this.indLoading = true;
-        var numb: number = 777777777;
+        var numb: string = "7777777777";
         this._companyService.get(Global.BASE_USER_ENDPOINT, numb)
             .subscribe(company => { this.company = company; this.indLoading = false; },
                 error => this.msg = <any>error);
@@ -59,14 +50,13 @@ export class CompanyComponent implements OnInit {
 
     onSubmit(formData: any) {
         this.msg = "";
-        var numb: number = 777777777;
+        var numb: string = "7777777777";
         this._companyService.get(Global.BASE_USER_ENDPOINT, numb).subscribe(
             data => {
                 if (data === 1) {
-                    this.msg = "Data successfully taken.";
                     this.LoadCompany();
                 } else {
-                     this.msg = "There is some issue in saving records, please contact to system administrator!";
+                     this.msg = "Type correct number!";
                 }
             },
             error => {
