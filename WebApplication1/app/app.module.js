@@ -14,14 +14,16 @@ var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var home_component_1 = require("./components/home.component");
+var company_component_1 = require("./components/company.component");
+var company_service_1 = require("./Service/company.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing],
-            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }],
+            declarations: [app_component_1.AppComponent, company_component_1.CompanyComponent, home_component_1.HomeComponent],
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, company_service_1.CompanyService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

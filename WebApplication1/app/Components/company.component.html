@@ -1,0 +1,53 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Company Browser
+    </div>
+    <div class='panel-body'>
+        <form novalidate (ngSubmit)="onSubmit(companyFrm)" [formGroup]="companyFrm">
+            <div class="form-group">
+                <div>
+                    <span>Name</span>
+                    <input type="text" class="form-control" value="{{company.Name}}" formControlName="Name">
+                </div>
+                <div>
+                    <span>Street</span>
+                    <input type="text" class="form-control" value="{{company.Street}}" formControlName="Street">
+                </div>
+                <div>
+                    <span>Street number</span>
+                    <input type="text" class="form-control" value="{{company.StreetNumber}}" formControlName="StreetNumber">
+                </div>
+                <div>
+                    <span>Postcode</span>
+                    <input type="text" class="form-control" value="{{company.Postcode}}" formControlName="Postcode">
+                </div>
+                <div>
+                    <span>City</span>
+                    <input type="text" class="form-control" value="{{company.City}}" formControlName="City">
+                </div>
+                <div>
+                    <span>Nip</span>
+                    <input type="text" class="form-control" value="{{company.Nip}}" formControlName="Nip">
+                </div>
+                <div>
+                    <span>Krs</span>
+                    <input type="text" class="form-control" value="{{company.Krs}}" formControlName="Krs">
+                </div>
+                <div>
+                    <span>Regon</span>
+                    <input type="text" class="form-control" value="{{company.Regon}}" formControlName="Regon">
+                </div>
+            </div>
+            <div>
+                <button type="submit" [disabled]="companyFrm.invalid" class="btn btn-primary">Send</button>
+            </div>
+        </form>
+
+        <div *ngIf="msg" role="alert" class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            {{msg}}
+        </div>
+    </div>
+</div>
