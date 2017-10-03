@@ -19,10 +19,15 @@ var CompanyService = /** @class */ (function () {
     function CompanyService(_http) {
         this._http = _http;
     }
-    CompanyService.prototype.get = function (url, id) {
-        return this._http.get(url + "?number=" + id)
-            .map(function (response) { return response.json(); })
-            .catch(this.handleError);
+    CompanyService.prototype.get = function (url, companyNumber) {
+        if (companyNumber) {
+            return this._http.get(url + '?number=' + companyNumber)
+                .map(function (response) { return response.json(); })
+                .catch(this.handleError);
+        }
+        else {
+            return Observable_1.Observable.of([]);
+        }
     };
     CompanyService.prototype.handleError = function (error) {
         console.error(error);

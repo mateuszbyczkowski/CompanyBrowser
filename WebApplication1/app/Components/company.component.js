@@ -17,42 +17,51 @@ var CompanyComponent = /** @class */ (function () {
     function CompanyComponent(fb, _companyService) {
         this.fb = fb;
         this._companyService = _companyService;
-        this.indLoading = false;
-    }
-    CompanyComponent.prototype.ngOnInit = function () {
         this.companyFrm = this.fb.group({
-            CompanyId: [''],
-            Name: [''],
-            Street: [''],
-            StreetNumber: [''],
-            Postcode: [''],
-            City: [''],
-            Nip: [''],
-            Krs: [''],
-            Regon: ['']
+            companyNumber: [''],
         });
-        this.LoadCompany();
-    };
-    CompanyComponent.prototype.LoadCompany = function () {
-        var _this = this;
-        this.indLoading = true;
-        var numb = "7777777777";
-        this._companyService.get(global_1.Global.BASE_USER_ENDPOINT, numb)
-            .subscribe(function (company) { _this.company = company; _this.indLoading = false; }, function (error) { return _this.msg = error; });
-    };
-    CompanyComponent.prototype.SetControlsState = function (isEnable) {
-        isEnable ? this.companyFrm.enable() : this.companyFrm.disable();
-    };
-    CompanyComponent.prototype.onSubmit = function (formData) {
+    }
+    //ngOnInit(): void {
+    //    this.companyFrm = this.fb.group({
+    //        CompanyId: [''],
+    //        Name: [''],
+    //        Street: [''],
+    //        StreetNumber: [''],
+    //        Postcode: [''],
+    //        City: [''],
+    //        Nip: [''],
+    //        Krs: [''],
+    //        Regon: ['']
+    //    });
+    //    this.LoadCompany();
+    //}
+    // LoadCompany(): void {
+    //    this.indLoading = true;
+    //    var numb: number = 777777777;
+    //    this._companyService.get(Global.BASE_USER_ENDPOINT, numb)
+    //        .subscribe(company => { this.company = company; this.indLoading = false; },
+    //            error => this.msg = <any>error);
+    // }
+    //LoadCompany(): void {
+    //    this.indLoading = true;
+    //    var numb: string = "7777777777";
+    //    this._companyService.get(Global.BASE_USER_ENDPOINT, numb)
+    //        .subscribe(company => { this.company = company; this.indLoading = false; },
+    //            error => this.msg = <any>error);
+    //}
+    //SetControlsState(isEnable: boolean) {
+    //    isEnable ? this.companyFrm.enable() : this.companyFrm.disable();
+    //}
+    CompanyComponent.prototype.onSubmit = function (companyFrm) {
         var _this = this;
         this.msg = "";
-        var numb = "7777777777";
-        this._companyService.get(global_1.Global.BASE_USER_ENDPOINT, numb).subscribe(function (data) {
-            if (data === 1) {
-                _this.LoadCompany();
+        this.companyNumber = this.companyFrm.value.companyNumber;
+        this._companyService.get(global_1.Global.BASE_USER_ENDPOINT, this.companyNumber).subscribe(function (data) {
+            if (data) {
+                _this.company = data;
             }
             else {
-                _this.msg = "Type correct number!";
+                _this.msg = "Type correct number";
             }
         }, function (error) {
             _this.msg = error;

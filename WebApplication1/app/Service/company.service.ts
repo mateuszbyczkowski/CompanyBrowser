@@ -9,16 +9,19 @@ import 'rxjs/add/operator/catch';
 export class CompanyService {
     constructor(private _http: Http) { }
 
-    get(url: string, id: string): Observable<any> {
-        return this._http.get(url + "?number=" + id)
-            .map((response: Response) => <any>response.json())
-             //.do(data => console.log("All: " + JSON.stringify(data)))
-            .catch(this.handleError);
+    get(url: string, companyNumber: string): Observable<any> {
+        if (companyNumber) {
+            return this._http.get(url + '?number=' + companyNumber)
+                .map((response: Response) => <any>response.json())
+                //.do(data => console.log("All: " + JSON.stringify(data)))
+                .catch(this.handleError);
+        } else {
+            return Observable.of([]);
+        }     
     }
 
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
     }
-
 }
