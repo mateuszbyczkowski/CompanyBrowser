@@ -20,6 +20,7 @@ namespace CompanyWebAPI.DAL
         }
 
         public DbSet<Company> Company { get; set; }
+        public DbSet<ApiLogEntry> ApiLogEntry { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

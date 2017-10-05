@@ -202,11 +202,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\LogRequestHandler.cs" />
     <Compile Include="Migrations\201710010002539_InitialCreate.cs" />
     <Compile Include="Migrations\201710010002539_InitialCreate.Designer.cs">
       <DependentUpon>201710010002539_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710051551532_LogRequest.cs" />
+    <Compile Include="Migrations\201710051551532_LogRequest.Designer.cs">
+      <DependentUpon>201710051551532_LogRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApiLogEntry.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -256,7 +262,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -283,6 +288,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710010002539_InitialCreate.resx">
       <DependentUpon>201710010002539_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710051551532_LogRequest.resx">
+      <DependentUpon>201710051551532_LogRequest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
