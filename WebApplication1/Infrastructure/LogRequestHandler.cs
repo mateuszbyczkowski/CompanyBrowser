@@ -16,7 +16,7 @@ namespace CompanyWebAPI.Infrastructure
 {
     public class LogRequestHandler : DelegatingHandler
     {
-        CompanyContext context = new CompanyContext();
+        CompanyContext _context = new CompanyContext();
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
             CancellationToken cancellationToken)
@@ -44,8 +44,8 @@ namespace CompanyWebAPI.Infrastructure
                         apiLogEntry.ResponseHeaders = SerializeHeaders(response.Content.Headers);
                     }
 
-                    context.ApiLogEntry.Add(apiLogEntry);
-                    context.SaveChanges();
+                    _context.ApiLogEntry.Add(apiLogEntry);
+                    _context.SaveChanges();
 
                     return response;
                 }, cancellationToken);
