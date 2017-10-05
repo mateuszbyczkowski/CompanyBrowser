@@ -6,13 +6,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
+var core_1 = require("@angular/core/core");
 var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
     }
     HomeComponent = __decorate([
         core_1.Component({
-            template: "\n            <h2>Autor: Mateusz Byczkowski</h2>\n            <a href=\"https://github.com/mateuszbyczkowski/CompanyBrowser\"><img style=\"width: 100px;\" src=\"../../Content/Images/github.png\" alt=\"github\"/></a>\n            "
+            templateUrl: 'home.component.html'
         })
     ], HomeComponent);
     return HomeComponent;

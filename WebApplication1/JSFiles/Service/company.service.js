@@ -15,19 +15,16 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
+var global = require("../shared/global");
+var Global = global.Global;
 var CompanyService = /** @class */ (function () {
     function CompanyService(_http) {
         this._http = _http;
     }
-    CompanyService.prototype.get = function (url, companyNumber) {
-        if (companyNumber) {
-            return this._http.get(url + '?number=' + companyNumber)
-                .map(function (response) { return response.json(); })
-                .catch(this.handleError);
-        }
-        else {
-            return Observable_1.Observable.of([]);
-        }
+    CompanyService.prototype.getCompany = function (companyNumber) {
+        return this._http.get(Global.BASE_USER_ENDPOINT + '?number=' + companyNumber)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
     };
     CompanyService.prototype.handleError = function (error) {
         console.error(error);

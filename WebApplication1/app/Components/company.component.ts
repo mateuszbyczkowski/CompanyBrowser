@@ -1,14 +1,10 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { CompanyService } from '../Service/company.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ICompany } from '../Models/company';
-import { Observable } from 'rxjs/Rx';
-import { Global } from '../Shared/global';
 
 @Component({
-
     templateUrl: 'app/Components/company.component.html'
-
 })
 
 export class CompanyComponent {
@@ -26,7 +22,7 @@ export class CompanyComponent {
         this.msg = "";
         this.companyNumber = this.companyFrm.value.companyNumber;
         if (this.companyNumber) {
-            this._companyService.get(Global.BASE_USER_ENDPOINT, this.companyNumber).subscribe(
+            this._companyService.getCompany(this.companyNumber).subscribe(
                 data => {
                     if (data)
                         if (data.CompanyId !== 0) {

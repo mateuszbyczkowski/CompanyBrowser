@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var company_service_1 = require("../Service/company.service");
 var forms_1 = require("@angular/forms");
-var global_1 = require("../Shared/global");
 var CompanyComponent = /** @class */ (function () {
     function CompanyComponent(fb, _companyService) {
         this.fb = fb;
@@ -26,7 +25,7 @@ var CompanyComponent = /** @class */ (function () {
         this.msg = "";
         this.companyNumber = this.companyFrm.value.companyNumber;
         if (this.companyNumber) {
-            this._companyService.get(global_1.Global.BASE_USER_ENDPOINT, this.companyNumber).subscribe(function (data) {
+            this._companyService.getCompany(this.companyNumber).subscribe(function (data) {
                 if (data)
                     if (data.CompanyId !== 0) {
                         _this.company = data;
