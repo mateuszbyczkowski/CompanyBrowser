@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using CompanyWebAPI.Infrastructure;
+using CompanyWebAPI.App_Start;
 
 namespace CompanyWebAPI
 {
@@ -15,6 +16,7 @@ namespace CompanyWebAPI
             // Web API routes
             config.MapHttpAttributeRoutes();
             config.MessageHandlers.Add(new LogRequestHandler());
+           
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

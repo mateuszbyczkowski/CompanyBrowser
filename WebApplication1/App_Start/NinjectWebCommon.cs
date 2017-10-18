@@ -1,5 +1,7 @@
+using System.Web.Mvc;
 using CompanyWebAPI.Controllers;
 using CompanyWebAPI.DAL;
+using Ninject.Web.Mvc;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CompanyWebAPI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CompanyWebAPI.App_Start.NinjectWebCommon), "Stop")]
@@ -14,6 +16,7 @@ namespace CompanyWebAPI.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using System.Data.Entity;
+    using System.Web.Http;
 
     public static class NinjectWebCommon 
     {
@@ -48,8 +51,8 @@ namespace CompanyWebAPI.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-
                 RegisterServices(kernel);
+                GlobalConfiguration.Configuration.DependencyResolver = new Ninject.Web.WebApi.NinjectDependencyResolver(kernel);
                 return kernel;
             }
             catch

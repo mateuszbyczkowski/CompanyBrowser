@@ -7,7 +7,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using CompanyWebAPI.App_Start;
 using CompanyWebAPI.DAL;
+using Ninject;
+using Ninject.Web.Mvc;
 
 namespace CompanyWebAPI
 {

@@ -16,15 +16,10 @@ namespace CompanyWebAPI.Controllers
     {
         private readonly ICompanyRepository _companyRepository;
 
-        public CompanyAPIController()
-        {
-            this._companyRepository = new CompanyRepository();
-        }
-        /*//TODO UŻYĆ NINJECTA
         public CompanyAPIController(ICompanyRepository companyRepository)
         {
             _companyRepository = companyRepository;
-        }*/
+        }
 
         public Company Get(string number)
         {
