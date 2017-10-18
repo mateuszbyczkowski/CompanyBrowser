@@ -66,7 +66,8 @@ namespace CompanyWebAPI.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             //kernel.Bind<ICompanyRepository>().To<CompanyContext>().InRequestScope();
-            kernel.Bind<ICompanyRepository>().To<CompanyRepository>().InRequestScope();
-        }        
+            //kernel.Bind<ICompanyRepository>().To<CompanyRepository>().InRequestScope();
+            kernel.Bind<ICompanyRepository>().To<CompanyRepository>();
+        }
     }
 }

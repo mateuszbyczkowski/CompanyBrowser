@@ -9,50 +9,40 @@ namespace CompanyWebAPI.DAL
 {
     public class CompanyRepository : ICompanyRepository, IDisposable
     {
-        private CompanyContext context;
-        public CompanyRepository(CompanyContext context)
-        {
-            this.context = context;
-        }
+        public CompanyContext _context = new CompanyContext();
+
         public IEnumerable<Company> GetCompanies()
         {
-            return context.Company.ToList();
+            return _context.Company.ToList();
         }
 
         public Company GetCompanyByNumber(string number)
         {
-            string cleanNumber = CleanNumber(number);
-            var companyData = context.Company.SingleOrDefault(c => c.Krs == cleanNumber || c.Nip == cleanNumber || c.Regon == cleanNumber);
+            var companyData = _context.Company.SingleOrDefault(c => c.Krs == number || c.Nip == number || c.Regon == number);
             if (companyData == null) return new Company() {};
             return companyData;
         }
 
-        public string CleanNumber(string number)
-        {
-            string cleanedNumber = new string(number.Where(char.IsDigit).ToArray());
-            return cleanedNumber;
-        }
-
         public void InsertCompany(Company company)
         {
-            context.Company.Add(company);
+            _context.Company.Add(company);
         }
 
         public void DeleteCompany(int companyId)
         {
-            Company student = context.Company.Find(companyId);
+            Company student = _context.Company.Find(companyId);
             if (student == null) throw new ArgumentNullException(nameof(student));
-            context.Company.Remove(student);
+            _context.Company.Remove(student);
         }
 
         public void UpdateCompany(Company company)
         {
-            context.Entry(company).State = EntityState.Modified;
+            _context.Entry(company).State = EntityState.Modified;
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         private bool disposed = false;
@@ -63,7 +53,7 @@ namespace CompanyWebAPI.DAL
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
             this.disposed = true;

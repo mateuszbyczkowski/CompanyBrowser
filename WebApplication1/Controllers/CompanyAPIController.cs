@@ -12,27 +12,35 @@ using System.Web.Mvc;
 
 namespace CompanyWebAPI.Controllers
 {
-    public class CompanyAPIController : BaseAPIController
+    public class CompanyAPIController : ApiController
     {
-        private readonly ICompanyRepository companyRepository;
+        private readonly ICompanyRepository _companyRepository;
 
         public CompanyAPIController()
         {
-            this.companyRepository = new CompanyRepository(new CompanyContext());
+            this._companyRepository = new CompanyRepository();
         }
+        /*//TODO UŻYĆ NINJECTA
         public CompanyAPIController(ICompanyRepository companyRepository)
         {
-            this.companyRepository = companyRepository;
-        }
+            _companyRepository = companyRepository;
+        }*/
 
-        public HttpResponseMessage Get(string number)
+        public Company Get(string number)
         {
-            return ToJson(companyRepository.GetCompanyByNumber(number));
+            string cleanNumber = CleanNumber(number);
+            return _companyRepository.GetCompanyByNumber(cleanNumber);
+        }
+        
+        public string CleanNumber(string number)
+        {
+            string cleanedNumber = new string(number.Where(char.IsDigit).ToArray());
+            return cleanedNumber;
         }
 
         protected override void Dispose(bool disposing)
         {
-            companyRepository.Dispose();
+            _companyRepository.Dispose();
             base.Dispose(disposing);
         }
     }
